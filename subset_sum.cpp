@@ -89,6 +89,18 @@ int main()
     assert(b.size() == 2 && "Result size does not match");
     assert(std::equal(b.begin(), b.end(), std::vector<uint32_t>{4, 10}.begin()) && "Result array does not match");
 
+    arr.resize(100);
+    for (int i = 0; i < 100; i++)
+        arr[i] = i + 1;
+
+    sum = 5051;
+
+    find_largest_sum(sum, arr, b, sum);
+
+    assert(sum == 5050 && "Sum does not match");
+    assert(b.size() == 100 && "Result size does not match");
+    assert(std::equal(b.begin(), b.end(), arr.begin()) && "Result array does not match");
+
     std::cout << "Tests finishes successfully!\n";
     return 0;
 }
